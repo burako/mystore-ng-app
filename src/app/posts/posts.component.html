@@ -1,0 +1,8 @@
+<h1> {{ pageTitle }} </h1>
+<ul>
+    <li *ngFor = "let post of posts">
+        <h2>{{post.title}}</h2>
+        <p>{{post.body}}</p>
+        <p>Votes: {{post.vote}}</p>
+    </li>
+</ul>
