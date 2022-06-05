@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { PhotosComponent } from './photos/photos.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostItemComponent } from './post-item/post-item.component';
+import { SettingsComponent } from './settings/settings.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
     PostsComponent,
-    PostItemComponent
+    PostItemComponent,
+    SettingsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
