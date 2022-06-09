@@ -22,4 +22,18 @@ describe('PostItemComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should upvote correctly', () => {
+    expect(component.upVote({
+      id: 88,
+      title: 'Sample post',
+      body: 'Sample body',
+      vote: 1
+    })).toEqual({
+      id: 88,
+      title: 'Sample post',
+      body: 'Sample body',
+      vote: 2
+    });
+  });
 });

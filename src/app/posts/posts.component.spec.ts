@@ -22,4 +22,8 @@ describe('PostsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the correct title', () => {
+    expect(component.pageTitle).toBe("View Posts Here!");
+  });
 });
