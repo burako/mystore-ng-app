@@ -28,4 +28,8 @@ export class PostsComponent implements OnInit {
     this.posts = this.posts.filter(po => po.id !== post.id);
   }
 
+  addPost(post: Post) : void {
+    this.posts.unshift(post);
+  }
+
 }
