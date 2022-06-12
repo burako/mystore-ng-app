@@ -1,33 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Post } from '../models/post';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getPosts() {
-  return [
-    {
-      id: 1,
-      title: "My awesome post",
-      body: "Just testing this out!",
-      vote: 1
-    },
-    {
-      id: 2,
-      title: "What's your favorite front-end framework?",
-      body: "My favorite is Angular. What do you enjoy working with?",
-      vote: 1
-    },
-    {
-      id: 3,
-      title: "ngOnInit is great",
-      body: "This lifecycle method gets called automatically upon component initialization!",
-      vote: 1
-    },
-  ];
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts?_limit=7');
   }
 
 }
