@@ -1,8 +1,24 @@
-<form (ngSubmit)="submitForm()">
+<form #form="ngForm" (ngSubmit)="submitForm()">
     <h1>Create New Post</h1>
-    <input type="text" name="title" placeholder="Enter new post title" [(ngModel)]="title">
+    <input type="text" name="title" required minlength="5" placeholder="Enter new post title" [(ngModel)]="title" #postTitle="ngModel">
     <br>
-    <textarea name="body" placeholder="Enter post body" [(ngModel)]="body"></textarea>
+    <textarea name="body" required minlength="15" placeholder="Enter post body" [(ngModel)]="body" #postBody="ngModel"></textarea>
     <br>
-    <input type="submit" value="Create Post" class="btn btn-primary">
+    <input type="submit" [disabled]="form.invalid" value="Create Post" class="btn btn-primary">
 </form>
+<div *ngIf="postTitle.invalid && postTitle.dirty">
+    <div *ngIf="postTitle.errors?.['required']">
+        a title is required
+    </div>
+    <div *ngIf="postTitle.errors?.['minlength']">
+        title must be at least 5 characters
+    </div>
+</div>
+<div *ngIf="postBody.invalid && postBody.dirty">
+    <div *ngIf="postBody.errors?.['required']">
+        a body is required
+    </div>
+    <div *ngIf="postBody.errors?.['minlength']">
+        body must be at least 15 characters
+    </div>
+</div>
